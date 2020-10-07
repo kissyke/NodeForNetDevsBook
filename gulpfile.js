@@ -53,13 +53,13 @@ gulp.task('test', gulp.series('lint-test', 'instrument', function() {
     env({ vars: { NODE_ENV: 'test' } });
     return gulp.src('test/**/*.js')
         .pipe(mocha())
-        .pipe(istanbul.writeReports())
-        .pipe(istanbul.enforceThresholds({
-            thresholds: {global:{
-                statements: 70,
-                branches: 50
-            }}
-        }));
+        .pipe(istanbul.writeReports());
+        // .pipe(istanbul.enforceThresholds({
+        //     thresholds: {global:{
+        //         statements: 70,
+        //         branches: 50
+        //     }}
+        // }));
 }));
 
 gulp.task('lint', gulp.series(
